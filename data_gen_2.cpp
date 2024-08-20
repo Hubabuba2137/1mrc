@@ -86,7 +86,7 @@ void process_station_data(const vector<station>& stations_list, int iterations, 
             write_to_file(buffer, zapis);
         }
     }
-    write_to_file(buffer, zapis); // Write any remaining data
+    write_to_file(buffer, zapis);
 }
 
 int main() {
@@ -107,13 +107,13 @@ int main() {
 
     ofstream zapis("test.txt");
 
-    const int buffer_size = 1 << 20; // 1 MB buffer
+    const int buffer_size = 1 << 20;
     vector<char> buffer;
     buffer.reserve(buffer_size);
 
-    /*
-    for(int i = 0; i < 10; ++i) {
-        // Otwórz plik w trybie dopisywania (lub użyj ios::trunc, jeśli chcesz nadpisać plik)
+    
+    for(int i = 0; i <10; ++i) {
+        //don't know if 10 works, it would be 1 billion rows though my vs code just broke up after like 500 million lines
         ofstream zapis("temperature_data.txt", ios::app); 
 
         vector<char> buffer;
@@ -121,12 +121,12 @@ int main() {
 
         process_station_data(stations_list, iterations, buffer, zapis);
 
-        zapis.close();  // Zamknij plik po każdej iteracji
+        zapis.close();
 
         cout << "Iteracja " << i + 1 << " zakończona." << endl;
-    }*/
+    }
 
-    process_station_data(stations_list, iterations, buffer, zapis);
+    //process_station_data(stations_list, iterations, buffer, zapis);
 
     zapis.close();
 
